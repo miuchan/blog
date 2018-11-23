@@ -1,6 +1,7 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "arrow-parens": true,
     "max-line-length": false,
     "no-arg": false,
     "no-bitwise": false,
