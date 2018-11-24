@@ -9,13 +9,17 @@ export class UserController {
 
     @Get("/articles")
     async getByPage(@QueryParam('page') page: number) {
-      return await articleRepository.find({
+      const res = await articleRepository.find({
         skip: 20 * (page || 0),
         take: 10,
         order: {
           id: "DESC",
         }
       });
+      return res.map(a => {
+        a.content = a.content.slice(0, 200)
+        return a
+      })
     }
 
     @Get("/articles/:id")
