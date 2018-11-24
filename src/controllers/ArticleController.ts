@@ -12,6 +12,9 @@ export class UserController {
       return await articleRepository.find({
         skip: 20 * (page || 0),
         take: 10,
+        order: {
+          id: "DESC",
+        }
       });
     }
 

@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
 import { Comment } from './Comment'
 
 @Entity()
@@ -15,4 +15,10 @@ export default class Article {
 
     @OneToMany(() => Comment, (comment) => comment.user)
     comments: Comment[]
+
+    @CreateDateColumn()
+    createAt: string
+
+    @UpdateDateColumn()
+    updateAt: string
 }
